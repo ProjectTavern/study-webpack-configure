@@ -1,0 +1,19 @@
+{
+  "name": "study-webpack",
+  "version": "1.0.0",
+  "description": "Study Webpack Config Setting",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qoov/Study-Webpack.git"
+  },
+  "author": "qoov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qoov/Study-Webpack/issues"
+  },
+  "homepage": "https://github.com/qoov/Study-Webpack#readme"
+}
