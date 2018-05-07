@@ -1,0 +1,21 @@
+{
+    "sourceMaps" : true,
+    "presets" : [
+        "es2015",
+        "stage-3"
+    ],
+    "plugins": [
+        [
+            "transform-react-jsx",
+            {
+                "pragma": "h"
+            }
+        ],
+        [
+            "transform-class-properties",
+            {
+                "spec": true
+            }
+        ]
+    ]
+}
