@@ -1,4 +1,6 @@
 import * as path from "path";
+import findSourcePath from './src/utils/findSourcePath';
+
 
 
 const PATH_OUTPUT = path.join(__dirname, "/dist");
@@ -9,6 +11,7 @@ const SOURCEPATH = process.env.npm_config_path;
 if ( !SOURCEPATH ) {
     throw new Error("Require set the source path.");
 }
+findSourcePath(PATH_SOURCE, SOURCEPATH);
 
 let config = {
     entry   : path.join(PATH_SOURCE, SOURCEPATH),
