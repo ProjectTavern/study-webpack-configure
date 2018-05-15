@@ -11,7 +11,7 @@ const SOURCEPATH = process.env.npm_config_path;
 if ( !SOURCEPATH ) {
     throw new Error("Require set the source path.");
 }
-findSourcePath(PATH_SOURCE, SOURCEPATH);
+findSourcePath(path.join(PATH_SOURCE, SOURCEPATH));
 
 let config = {
     entry   : path.join(PATH_SOURCE, SOURCEPATH),

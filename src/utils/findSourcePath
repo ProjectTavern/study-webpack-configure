@@ -1,15 +1,34 @@
 import * as path from 'path';
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
-export default function findSourcePath (basePath, sourcePath) {
-    const resultPath = path.join(basePath, sourcePath);
-    const localConfigure = path.join(resultPath, 'config.json');
-    console.log(localConfigure);
-    fs.readFile(localConfigure, 'UTF8',(err, data) => {
-        if (err) throw err;
-        var object = JSON.parse(data);
-        console.log(object);
-    })
+export default function findSourcePath (sourcePath) {
 
+    const extractedFiles = extractConfigs(sourcePath);
+
+    extractedFiles.forEach(file => {
+        fs.readFile(file, 'UTF8',(err, data) => {
+            if (err) throw err;
+
+            console.log(data);
+        })
+    });
+
+
+}
+
+function extractConfigs (dir) {
+    let result = [];
+    (function extractDir(_dir){
+        let files = fs.readdirSync(_dir);
+        files.forEach(file => {
+            const name = _dir + path.sep + file;
+            if(fs.statSync(name).isDirectory()){
+                extractDir(name);
+            } else {
+                result.push(name);
+            }
+        });
+    })(dir);
+    return result;
 }
