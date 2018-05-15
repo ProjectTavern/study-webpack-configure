@@ -8,6 +8,7 @@ const PATH_SOURCE = path.join(__dirname, "src");
 
 const ENV = process.env.PUB_ENV ? process.env.PUB_ENV : "local";
 const SOURCEPATH = process.env.npm_config_path;
+
 if ( !SOURCEPATH ) {
     throw new Error("Require set the source path.");
 }

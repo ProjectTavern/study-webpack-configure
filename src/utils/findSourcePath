@@ -4,31 +4,33 @@ const fs = require('fs');
 
 export default function findSourcePath (sourcePath) {
 
-    const extractedFiles = extractConfigs(sourcePath);
-
+    const extractedFiles = getConfigures(sourcePath);
     extractedFiles.forEach(file => {
-        fs.readFile(file, 'UTF8',(err, data) => {
-            if (err) throw err;
-
-            console.log(data);
-        })
+        if(file.match(/\.json$/)){
+            fs.readFile(file, 'UTF8',(err, data) => {
+                if (err) throw err;
+                var Op = JSON.parse(data);
+                console.log(Op.readme);
+            })
+        }
     });
-
 
 }
 
-function extractConfigs (dir) {
+function getConfigures (dir) {
+
     let result = [];
-    (function extractDir(_dir){
+    (function extractFilePath(_dir){
         let files = fs.readdirSync(_dir);
         files.forEach(file => {
             const name = _dir + path.sep + file;
             if(fs.statSync(name).isDirectory()){
-                extractDir(name);
+                extractFilePath(name);
             } else {
                 result.push(name);
             }
         });
     })(dir);
     return result;
+
 }
