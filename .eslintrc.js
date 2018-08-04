@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ["eslint:recommended", "standard-preact"],
+    // extends: ["eslint:recommended", "standard-preact"],
     parserOptions: {
         ecmaVersion: 6,
         sourceType: "module",
@@ -23,4 +23,4 @@ module.exports = {
         commonjs: true,
         es6: true
     }
-}
+};
