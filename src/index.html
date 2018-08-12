@@ -4,28 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <title>WEBPACK TEST PAGE</title>
+  <style>
+    li{list-style:none}
+    dt{float:left}
+    dd{overflow:hidden}
+    dt,dd{padding:20px}
+    #studyPage .hide{display:none}
+
+    .tabs{overflow:hidden}
+    .tabs li{float:left;border:1px solid blueviolet;padding:20px}
+    .tabs .on{background-color:blueviolet;color:#fff}
+    .view_item{border:1px solid #e5e5e5;text-align:center;padding:15px}
+    .view_item strong{display:inline-block;font-size:25px;padding:20px}
+    .view_item dl,.view_item ul{text-align:left}
+    .view_item li{padding:20px}
+
+    .list_curri{border:1px solid navajowhite}
+    .list_curri .input_box{display:inline-block;padding:10px}
+    .list_curri input{margin:20px}
+    .selected_todo{border:1px solid chocolate;padding:15px;margin-top:20px}
+  </style>
 </head>
 <body>
-<button id="btn">시작버튼</button>
-<style>div{height:100px;border:1px solid black}</style>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
-<div><img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" data-src="https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__480.jpg"></div>
+  <div id="studyPage" class="view_main">
+    <h1>스터디 페이지</h1>
+    <ul class="tabs">
+      <li class="on">인물정보</li>
+      <li>공부할 것</li>
+      <li id="call_ajax">어딘가의 AJAX콜</li>
+    </ul>
+    <div class="view_item">
+      <strong>Qoov</strong>
+      <dl>
+        <dt>전공</dt>
+        <dd>롤</dd>
+        <dt>주언어</dt>
+        <dd>자바</dd>
+        <dt>보조언어</dt>
+        <dd>자바스크립트</dd>
+      </dl>
+    </div>
+    <div class="view_item hide">
+      <strong>스터디 투두 리스트</strong>
+      <div class="list_curri">
+        <div class="input_box"><input type="checkbox" value="spring">스프링</div>
+        <div class="input_box"><input type="checkbox" value="java">자바</div>
+        <div class="input_box"><input type="checkbox" value="javascript">자바스크립트</div>
+        <div class="input_box"><input type="checkbox" value="lambda">람다</div>
+        <div class="input_box"><input type="checkbox" value="tcpip">TCP/IP</div>
+        <div class="input_box"><input type="checkbox" value="database">데이터베이스</div>
+      </div>
+      <div class="selected_todo">
+        <strong>선택된 할일</strong>
+        <ul></ul>
+      </div>
+    </div>
+    <div class="view_item hide">
+      <strong>국가 / 지역</strong>
+      <ul class="region"></ul>
+    </div>
+  </div>
 </body>
 </html>
