@@ -1,5 +1,5 @@
-var last_known_scroll_position = 0;
-var ticking = false;
+let last_known_scroll_position = 0;
+let ticking = false;
 
 window.addEventListener('scroll', function(event) {
   console.log("SCROLLED");
