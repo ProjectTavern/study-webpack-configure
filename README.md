@@ -8,4 +8,6 @@ Study Webpack Config Setting
 
 ## 웹팩 설정
 
-present
+base: webpack.config.js
+develop: webpack.config.dev.js
+product: webpack.config.product.js
